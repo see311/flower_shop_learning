@@ -45,6 +45,7 @@ class BodyPage extends Page {
             router.to(ctx, Path.Home, {});
             break;
           case 1:
+          // 这个路由不显示下面的bottomNavigationBar？
             router.to(ctx, Path.Subject, {});
             break;
           case 2:
