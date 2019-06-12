@@ -65,7 +65,9 @@ class BodyPage extends Page {
         pageBuilder: (BuildContext ctx, Animation<double> animation,
             Animation<double> secondaryAnimation) {
           return Scaffold(
-            body: _buildFn(ctx, params, router),
+            body: params['init']
+                ? wrapPopScope(_buildFn(ctx, params, router))
+                : _buildFn(ctx, params, router),
             bottomNavigationBar:
                 bottomNavigationBar(ctx, params['path'] ?? '/', router),
           );
@@ -75,7 +77,9 @@ class BodyPage extends Page {
       return MaterialPageRoute(
         builder: (BuildContext ctx) {
           return Scaffold(
-            body: _buildFn(ctx, params, router),
+            body: params['init']
+                ? wrapPopScope(_buildFn(ctx, params, router))
+                : _buildFn(ctx, params, router),
             bottomNavigationBar:
                 bottomNavigationBar(ctx, params['path'] ?? '/', router),
           );
