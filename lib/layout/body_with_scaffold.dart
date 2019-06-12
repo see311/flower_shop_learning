@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flower_shop/path.dart' as Path;
 import 'package:flower_shop/router.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 typedef Widget BuildFn(BuildContext ctx, Map params, MyRoute router);
 
@@ -9,6 +10,7 @@ class BodyPage extends Page {
   BuildFn _buildFn;
   Map params;
   bool noAnimate = true;
+  DateTime _lastTime;
 
   bottomNavigationBar(ctx, path, MyRoute router) {
     var _selectedIndex = -1;
@@ -24,7 +26,7 @@ class BodyPage extends Page {
         break;
       default:
     }
-    if (_selectedIndex == 1) return null;
+    if (_selectedIndex == -1) return null;
     const IconData home = Icons.home;
     const IconData gift = Icons.card_giftcard;
     const IconData contact = Icons.person;
@@ -80,6 +82,33 @@ class BodyPage extends Page {
         },
       );
     }
+  }
+
+  Widget wrapPopScope(Widget child) {
+    /// If the callback returns a Future that resolves to false, the enclosing
+    /// route will not be popped.
+    return WillPopScope(
+      onWillPop: () async {
+        print(_lastTime == null);
+        if (_lastTime == null ||
+            DateTime.now().difference(_lastTime) > Duration(seconds: 1)) {
+          Fluttertoast.showToast(
+            msg: '再次返回退出',
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIos: 1,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0,
+          );
+          _lastTime = DateTime.now();
+          return false;
+        }
+
+        return true;
+      },
+      child: child,
+    );
   }
 
   BodyPage.fromBuild(BuildFn build) {
