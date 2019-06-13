@@ -11,6 +11,7 @@ class BodyPage extends Page {
   Map params;
   bool noAnimate = true;
   DateTime _lastTime;
+  String title;
 
   bottomNavigationBar(ctx, path, MyRoute router) {
     var _selectedIndex = -1;
@@ -32,7 +33,7 @@ class BodyPage extends Page {
     const IconData contact = Icons.person;
 
     return BottomNavigationBar(
-      elevation: 0,
+      elevation: 26,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(icon: Icon(home), title: Text('首页')),
         BottomNavigationBarItem(icon: Icon(gift), title: Text('专题')),
@@ -115,7 +116,7 @@ class BodyPage extends Page {
     );
   }
 
-  BodyPage.fromBuild(BuildFn build) {
+  BodyPage.fromBuild(BuildFn build, {this.noAnimate = true, this.title}) {
     _buildFn = build;
   }
 }

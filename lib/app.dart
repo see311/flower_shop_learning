@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
     route.pages.forEach((path, page) {
       if (path == settings.name) {
         var args = settings.arguments;
-        print(settings.arguments);
         if (args == null) {
           args = {
             'name': settings.name,
