@@ -30,7 +30,8 @@ class _InnerSubjectState extends State<InnerSubject> {
         var subject = subjects[index];
         return GestureDetector(
           onTap: () {
-            route.to(ctx, Path.SubjectDetail, {});
+            // route.to(ctx, Path.SubjectDetail, {});
+            // flutter的webview有各种问题，暂时先屏蔽
           },
           child: Container(
             margin: EdgeInsets.all(10.0),
@@ -85,8 +86,10 @@ class _InnerSubjectState extends State<InnerSubject> {
   onRefresh() {
     Future.delayed(Duration(seconds: 2)).then((_) {
       setState(() {
-        subjects.add(M.Subject(1, "test",
-            "https://st-gdx.dancf.com/gaodingx/8/design/20190416-104501-cd9f.png?x-oss-process=image/resize,w_760/interlace,1"));
+        subjects.insert(
+            0,
+            M.Subject(1, "test",
+                "https://st-gdx.dancf.com/gaodingx/8/design/20190416-104501-cd9f.png?x-oss-process=image/resize,w_760/interlace,1"));
       });
       refreshController.refreshCompleted();
     });

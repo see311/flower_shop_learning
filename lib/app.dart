@@ -1,4 +1,5 @@
 import 'package:flower_shop/page/subject.dart';
+// import 'package:flower_shop/page/subject_detail.dart';
 import 'package:flower_shop/page/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flower_shop/router.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
     route.add(Path.Home, HomePage());
     route.add(Path.User, UserPage());
     route.add(Path.Subject, SubjectPage());
+    // route.add(Path.SubjectDetail, SubjectDetail());
   }
 
   @override
