@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 const boxDecoration = BoxDecoration(
-    color: Color.fromRGBO(255, 255, 255, 1),
+    color: Colors.white,
     borderRadius: BorderRadius.all(Radius.circular(6)),
     boxShadow: [
       BoxShadow(

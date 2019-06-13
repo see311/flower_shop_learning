@@ -4,3 +4,4 @@ const User = '/user';
 const ShopCart = '/shopCart';
 const Search = '/search';
 const Detail = '/detail';
+const SubjectDetail = '/subjectDetail';
