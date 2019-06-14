@@ -1,6 +1,6 @@
 # flower_shop
 
-A new Flutter project.
+A Flutter project forked from MiYogurt/flower_flutter with some my optimization.
 
 ## Getting Started
 
