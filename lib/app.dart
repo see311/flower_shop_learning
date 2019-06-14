@@ -1,3 +1,4 @@
+import 'package:flower_shop/page/coupon.dart';
 import 'package:flower_shop/page/subject.dart';
 // import 'package:flower_shop/page/subject_detail.dart';
 import 'package:flower_shop/page/user.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
     route.add(Path.User, UserPage());
     route.add(Path.Subject, SubjectPage());
     // route.add(Path.SubjectDetail, SubjectDetail());
+    route.add(Path.Coupon, couponPage());
   }
 
   @override

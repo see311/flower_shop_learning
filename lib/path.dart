@@ -5,3 +5,6 @@ const ShopCart = '/shopCart';
 const Search = '/search';
 const Detail = '/detail';
 const SubjectDetail = '/subjectDetail';
+const Coupon = '/coupon';
+const ChangePass = '/changePass';
+const Exit = '/exit';
